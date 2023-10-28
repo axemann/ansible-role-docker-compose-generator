@@ -1,6 +1,9 @@
 ---
 
 {{ ansible_managed | comment }}
+##############################
+# If you're seeing this, you're using a symlinked version of this role.
+##############################
 ---
 
 services:
@@ -88,8 +91,8 @@ services:
 {% if container.depends_on is defined %}
     depends_on:
 {% for dependent in container.depends_on %}
-{% if dependent is mapping %}
-      {{ dependent.service}}:
+{% if dependent.condition is defined %}
+      {{ dependent }}:
         condition: {{ dependent.condition }}
 {% else %}
       - {{ dependent }}
@@ -176,27 +179,12 @@ services:
 {% if container.healthcheck is defined %}
     healthcheck:
       test: {{ container.healthcheck.test }}
-{% if container.healthcheck.interval is defined %}
       interval: {{ container.healthcheck.interval }}
-{% endif %}
-{% if container.healthcheck.timeout is defined %}
       timeout: {{ container.healthcheck.timeout }}
-{% endif %}
 {% if container.healthcheck.retries is defined %}
       retries: {{ container.healthcheck.retries }}
 {% endif %}
-{% if container.healthcheck.start_period is defined %}
       start_period: {{ container.healthcheck.start_period }}
-{% endif %}
-{% endif %}
-{% if container.deploy.resources.reservations.devices is defined %}
-    deploy:
-      resources:
-        reservations:
-          devices:
-          - driver: nvidia
-            count: {{ container.deploy.resources.reservations.devices.driver.count | default("1") }}
-            capabilities: [gpu]
 {% endif %}
 {% if container.restart is defined %}
     restart: {{ container.restart }}
