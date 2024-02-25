@@ -1,11 +1,12 @@
 ---
 galaxy_info:
   role_name: docker_compose_generator
-  author: Alex Kretzschmar
+  namespace: axemann
+  author: Axemann
   description: Create a docker-compose.yml file
-  issue_tracker_url: https://github.com/ironicbadger/ansible-role-create-users/issues
+  issue_tracker_url: https://github.com/axemann/ansible-role-docker-compose-generator/issues
   license: GPLv2
-  min_ansible_version: 2.4
+  min_ansible_version: "2.4"
   platforms:
   - name: EL
     versions:
@@ -13,7 +14,6 @@ galaxy_info:
   - name: GenericUNIX
     versions:
     - all
-    - any
   - name: Fedora
     versions:
     - all
@@ -26,7 +26,6 @@ galaxy_info:
   - name: GenericBSD
     versions:
     - all
-    - any
   - name: FreeBSD
     versions:
     - all
@@ -39,11 +38,10 @@ galaxy_info:
   - name: GenericLinux
     versions:
     - all
-    - any
   - name: Debian
     versions:
     - all
-  categories:
+  galaxy_tags:
   - system
-  - web
+  - docker
 dependencies: []
