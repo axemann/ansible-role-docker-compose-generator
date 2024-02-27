@@ -4,7 +4,7 @@ Pass this role a hash and it will generate a docker-compose.yml file. The follow
 
 Rendered files are output to the `output` directory.
 
-```
+```yaml
 ---
 
 # global vars
@@ -46,6 +46,14 @@ containers:
     image: nextcloud
     container_name: nextcloud
     include_global_env_vars: false
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://service_url:port || exit 1
+      # Or use 'curl --fail http://service_url:port || exit 1' if wget is unavailable
+      interval: 10s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+
     volumes:
       - "{{ appdata_path }}/nextcloud/html:/var/www/html"
       - "{{ appdata_path }}/nextcloud/apps:/var/www/html/custom_apps"
