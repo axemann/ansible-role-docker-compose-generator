@@ -3,6 +3,7 @@ name: Release
   push:
     tags:
       - '*'
+  workflow_dispatch:
 
 env:
   GALAXY_USERNAME: axemann
