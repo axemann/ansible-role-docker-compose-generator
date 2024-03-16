@@ -42,7 +42,4 @@ galaxy_info:
   - name: Debian
     versions:
     - all
-  galaxy_tags:
-  - system
-  - docker
 dependencies: []
