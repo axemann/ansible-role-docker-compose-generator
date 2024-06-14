@@ -1,5 +1,4 @@
 ---
-
 include_compose_version: true
 docker_compose_generator_output_path: "~"
 docker_compose_generator_uid: "1000"
