@@ -1,5 +1,4 @@
 ---
-
 galaxy_info:
   role_name: docker_compose_generator
   namespace: axemann
@@ -42,4 +41,5 @@ galaxy_info:
   - name: Debian
     versions:
     - all
+
 dependencies: []

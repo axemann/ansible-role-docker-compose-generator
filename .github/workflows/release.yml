@@ -1,25 +1,23 @@
+---
 name: Release
 on:
   workflow_dispatch:
   push:
     tags:
-      - '*'
-  workflow_dispatch:
+      - "*"
 
 env:
   GALAXY_USERNAME: axemann
 
 jobs:
-
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
-
       - name: Set up Python 3.
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install Ansible.
         run: pip3 install ansible-core
