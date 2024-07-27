@@ -2,7 +2,6 @@
 
 {{ ansible_managed | comment }}
 ---
-
 services:
 {% for container in containers %}
 {% if container.active %}
@@ -200,9 +199,6 @@ services:
 {% endif %}
 {% if container.restart is defined %}
     restart: {{ container.restart }}
-{% endif %}
-{% if container.stop_grace_period is defined %}
-    stop_grace_period: {{ container.stop_grace_period }}
 {% endif %}
 {% endif %}
 {% endfor %}
