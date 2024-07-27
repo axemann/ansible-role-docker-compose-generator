@@ -1,10 +1,10 @@
 ---
 name: Release
-"on":
+on:
+  workflow_dispatch:
   push:
     tags:
       - "*"
-  workflow_dispatch:
 
 env:
   GALAXY_USERNAME: axemann
